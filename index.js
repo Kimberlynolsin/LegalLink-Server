@@ -2,63 +2,35 @@ const express = require("express");
 const app = express();
 const jwt = require("jsonwebtoken");
 const cors = require("cors");
+const bcrypt = require("bcrypt");
 const port = process.env.PORT || 8080;
 require("dotenv").config();
 
 app.use(express.json());
 app.use(cors());
 
-app.use((req, res, next) => {
-  if (req.url === "/signup" || req.url === "/login") {
-    next();
-  } else {
-    const token = getToken(req);
+const users = [];
 
-    if (token) {
-      console.log("Auth Token:", token);
-      if (jwt.verify(token, process.env.ACCESS_TOKEN_SECRET)) {
-        req.decode = jwt.decode(token);
-        next();
-      } else {
-        res.status(403).json({ error: "Not Authorized." });
-      }
-    } else {
-      res.status(403).json({ error: "No token. Unauthorized." });
-    }
+app.get("/users", (req, res) => {
+  res.json(users);
+});
+
+app.post("/signup", async (req, res) => {
+  try {
+    const hashedPassword = await bcrypt.hash(req.body.password, 10);
+    const user = {
+      name: req.body.name,
+      username: req.body.username,
+      password: hashedPassword,
+    };
+    users.push(user);
+    res.status(201).send("")
+  } catch {
+    res.status(500).send();
   }
 });
 
-function getToken(req) {
-  return req.headers.authorization.split(" ")[1];
-}
-
-const users = {};
-
-app.post("/signup", (req, res) => {
-  const { username, name, password } = req.body;
-  users[username] = {
-    name,
-    password,
-  };
-  console.log("Users Object:", users);
-  res.json({ success: "true" });
-});
-
-app.post("/login", (req, res) => {
-  const { username, password } = req.body;
-  const user = users[username];
-  if (user && user.password === password) {
-    console.log("Found user:", user);
-    res.json({ token: jwt.sign({ name: user.name },  process.env.ACCESS_TOKEN_SECRET) });
-  } else {
-    res.status(403).json({
-      token: "",
-      error: {
-        message: "Error logging in. Invalid username/password combination.",
-      },
-    });
-  }
-});
+app.post('/login', )
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}....`);
