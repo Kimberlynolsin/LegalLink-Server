@@ -2,8 +2,7 @@ const express = require("express");
 const router = express.Router();
 const fs = require("fs");
 const users = require("../data/users.json");
-const bcrypt = require("bcrypt"); 
-
+const bcrypt = require("bcrypt");
 
 router.post("/signup", async (req, res) => {
   try {
@@ -20,7 +19,7 @@ router.post("/signup", async (req, res) => {
       if (err) {
         return res.status(500).json({
           error: true,
-          message: "There was ana error saving the user, please try again",
+          message: "There was an error saving the user, please try again",
         });
       }
 
@@ -28,11 +27,35 @@ router.post("/signup", async (req, res) => {
     });
 
     res.status(201).send("");
-
   } catch {
     res.status(500).send();
   }
-
 });
 
-module.exports = router
+router.post("/login", async (req, res) => {
+  const userDetails = getUsers();
+  const userLogin = userDetails.find((user) => {
+    return user.username === req.body.username;
+  });
+
+  if (userLogin === null) {
+    return res.status(400).send("Cannot find user");
+  }
+
+  try {
+    if (await bcrypt.compare(req.body.password, userLogin.password)) {
+      res.send("Login Success");
+    } else {
+      res.send("Login Failed");
+    }
+  } catch {
+    res.status(500).send();
+  }
+});
+
+function getUsers() {
+  const usersFromFile = fs.readFileSync("./data/users.json");
+  return JSON.parse(usersFromFile);
+}
+
+module.exports = router;
