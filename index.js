@@ -1,36 +1,37 @@
 const express = require("express");
 const app = express();
-const jwt = require("jsonwebtoken");
+// const jwt = require("jsonwebtoken");
 const cors = require("cors");
-const bcrypt = require("bcrypt");
-const port = process.env.PORT || 8080;
+// const bcrypt = require("bcrypt");
+const fs = require('fs')
+const authRoutes = require('./routes/auth')
 require("dotenv").config();
 
-app.use(express.json());
+const port = process.env.PORT || 8080;
+
 app.use(cors());
+app.use(express.json());
 
-const users = [];
 
-app.get("/users", (req, res) => {
-  res.json(users);
-});
 
-app.post("/signup", async (req, res) => {
-  try {
-    const hashedPassword = await bcrypt.hash(req.body.password, 10);
-    const user = {
-      name: req.body.name,
-      username: req.body.username,
-      password: hashedPassword,
-    };
-    users.push(user);
-    res.status(201).send("")
-  } catch {
-    res.status(500).send();
+app.use((req, res, next) => {
+  if (
+    req.method === "POST" &&
+    req.headers["content-type"] !== "application/json"
+  ) {
+    return res.status(400).json({
+      error: true,
+      message: "This API only accepts JSON data for a POST/PUT requset body",
+    });
   }
+
+  next();
 });
 
-app.post('/login', )
+app.use('/',authRoutes)
+
+
+
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}....`);
