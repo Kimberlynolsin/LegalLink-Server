@@ -7,10 +7,6 @@ const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
 
-router.get('/ticket',authenticateToken,(Req,res)=>{
-const tickets = getTicket()
-res.send(tickets)
-})
 router.post("/signup", async (req, res) => {
   try {
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
@@ -50,15 +46,8 @@ router.post("/login", async (req, res) => {
 
   try {
     if (await bcrypt.compare(req.body.password, userSignedUp.password)) {
-      // const username = req.body.username;
-      // const userLoggedIn = { name: username };
-      // console.log(userLoggedIn);
-      // const accessToken = jwt.sign(
-      //   userLoggedIn,
-      //   process.env.ACCESS_TOKEN_SECRET
-      // );
       res.send("Login Success")
-      // .json({ accessToken: accessToken });
+      
     } else {
       res.send("Login Failed");
     }
@@ -70,11 +59,6 @@ router.post("/login", async (req, res) => {
 function getUsers() {
   const usersFromFile = fs.readFileSync("./data/users.json");
   return JSON.parse(usersFromFile);
-}
-
-function getTicket(){
-  const ticketFromFile = fs.readFileSync("./data/ticket.json");
-  return JSON.parse(ticketFromFile);
 }
 
 function authenticateToken(req, res, next) {

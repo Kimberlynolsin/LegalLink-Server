@@ -1,5 +1,12 @@
-[{
-    "id": 1,
-    "username":"reggie",
-    "title": "When will my work permit be done"
-}]
+[
+  {
+    "id": "4b26d702-a592-4e7e-af3f-8b83258a3354",
+    "title": "Estimated time on work permit",
+    "description": "Could I get an estimated time for my work permit application. What are the steps should I take once the work permit has been issued in order to start working?"
+  },
+  {
+    "id": "08c49140-a36f-4583-a754-19f07412464c",
+    "title": "Studying",
+    "description": "Am I allowed to take a bootcamp course for 12 weeks? Or would I need to apply for a student visa"
+  }
+]
