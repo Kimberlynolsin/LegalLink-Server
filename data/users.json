@@ -1,5 +1,4 @@
 [
-
   {
     "name": "elliot",
     "username": "elliot123",
@@ -14,5 +13,15 @@
     "name": "reggie",
     "username": "reggie",
     "password": "$2b$10$vmCom48dykZxWuAu56URfePw1In6U45bspOR1wQuyOpGOhgWqmuHC"
+  },
+  {
+    "name": "kimberly nelson",
+    "username": "kimmy",
+    "password": "$2b$10$2CISA.nkmLJtBBkgPVIX/Oj5Wp/crZBUB2NaBM7A.gzCAYFXx89k6"
+  },
+  {
+    "name": "smiley",
+    "username": "smiley123",
+    "password": "$2b$10$JDbkeBSEl9vleoXSexiM8upUUQNZ.JLQeGnAYAvg81WuEUNyt7WGa"
   }
 ]
