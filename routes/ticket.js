@@ -22,7 +22,7 @@ router.post("/", (req, res) => {
 
   tickets.push(newTicket)
 
-  fs.writeFile("./data/ticket.json", JSON.stringify(tickets), (err) => {
+  fs.writeFileSync("./data/ticket.json", JSON.stringify(tickets), (err) => {
     if (err) {
       return res.status(500).json({
         error: true,
@@ -43,4 +43,5 @@ function getTicket() {
   const ticketFromFile = fs.readFileSync("./data/ticket.json");
   return JSON.parse(ticketFromFile);
 }
+
 module.exports = router;

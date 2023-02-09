@@ -6,16 +6,15 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
-
 router.post("/signup", async (req, res) => {
   try {
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
+
     const user = {
       name: req.body.name,
       username: req.body.username,
       password: hashedPassword,
     };
-
     users.push(user);
 
     fs.writeFile("./data/users.json", JSON.stringify(users), (err) => {
@@ -25,11 +24,10 @@ router.post("/signup", async (req, res) => {
           message: "There was an error saving the user, please try again",
         });
       }
-      res.status(201).json(user);
+      res.status(201).json({message: 'Sign up successful'});
     });
-
-    res.status(201).send("");
-  } catch {
+  } catch (error) {
+    console.log(error);
     res.status(500).send();
   }
 });
@@ -46,8 +44,7 @@ router.post("/login", async (req, res) => {
 
   try {
     if (await bcrypt.compare(req.body.password, userSignedUp.password)) {
-      res.send("Login Success")
-      
+      res.send("Login Success");
     } else {
       res.send("Login Failed");
     }
@@ -61,17 +58,17 @@ function getUsers() {
   return JSON.parse(usersFromFile);
 }
 
-function authenticateToken(req, res, next) {
-  const authHeader = req.headers["authorization"];
-  const token = authHeader && authHeader.split(" ")[1];
-  if (token === null) return res.sendStatus(401);
+// function authenticateToken(req, res, next) {
+//   const authHeader = req.headers["authorization"];
+//   const token = authHeader && authHeader.split(" ")[1];
+//   if (token === null) return res.sendStatus(401);
 
-  jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, userLoggedIn) => {
-    if (err) return res.sendStatus(403);
-    req.user = userSignedUp;
+//   jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, userLoggedIn) => {
+//     if (err) return res.sendStatus(403);
+//     req.user = userSignedUp;
 
-    next();
-  });
-}
+//     next();
+//   });
+// }
 
 module.exports = router;
