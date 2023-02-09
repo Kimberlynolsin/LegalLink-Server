@@ -7,6 +7,8 @@ const { v4: uuidv4 } = require("uuid");
 router.post("/", (req, res) => {
   const { title, description } = req.body;
 
+  console.log(title, description);
+
   if (!title || !description) {
     return res.status(400).json({
       error: true,
@@ -20,9 +22,9 @@ router.post("/", (req, res) => {
     description: description,
   };
 
-  tickets.push(newTicket)
+  tickets.push(newTicket);
 
-  fs.writeFileSync("./data/ticket.json", JSON.stringify(tickets), (err) => {
+  fs.writeFile("./data/ticket.json", JSON.stringify(tickets), (err) => {
     if (err) {
       return res.status(500).json({
         error: true,
@@ -34,10 +36,10 @@ router.post("/", (req, res) => {
   });
 });
 
-router.get('/', (req,res)=>{
-    const showTickets = getTicket()
-    res.json(showTickets)
-})
+router.get("/", (req, res) => {
+  const showTickets = getTicket();
+  res.json(showTickets);
+});
 
 function getTicket() {
   const ticketFromFile = fs.readFileSync("./data/ticket.json");
