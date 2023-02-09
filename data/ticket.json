@@ -1,5 +1,22 @@
-[{
-    "id": 1,
-    "username":"reggie",
-    "title": "When will my work permit be done"
-}]
+[
+  {
+    "id": "4b26d702-a592-4e7e-af3f-8b83258a3354",
+    "title": "Estimated time on work permit",
+    "description": "Could I get an estimated time for my work permit application. What are the steps should I take once the work permit has been issued in order to start working?"
+  },
+  {
+    "id": "08c49140-a36f-4583-a754-19f07412464c",
+    "title": "Studying",
+    "description": "Am I allowed to take a bootcamp course for 12 weeks? Or would I need to apply for a student visa"
+  },
+  {
+    "id": "a154897e-9a87-4b63-8663-3c7f226f5240",
+    "title": "Do I have to renew my work permit?",
+    "description": "Do I have to renew my work permit if it expires before my refugee application gets approved?"
+  },
+  {
+    "id": "c858ff47-d19f-4e1f-b88a-572a749ee81d",
+    "title": "Estimated time on work permit",
+    "description": "Could I get an estimated time for my work permit application. What are the steps should I take once the work permit has been issued in order to start working?"
+  }
+]

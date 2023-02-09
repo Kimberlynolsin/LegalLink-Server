@@ -1,27 +1,22 @@
 [
   {
+    "name": "kimmy",
+    "username": "reggie",
+    "password": "$2b$10$cN2mAxz7yUinFDlJ42pWZOx7XnTpotQIWhlR2W7gOGQiWkprVq6/W"
+  },
+  {
+    "name": "mitchy",
+    "username": "mitchy",
+    "password": "$2b$10$xlkFmZnxwiM/3t7YaT4rmOVSoHjidPoQ3HwABP3Qmhvzj8qxgSA3m"
+  },
+  {
     "name": "elliot",
-    "username": "elliot123",
-    "password": "$2b$10$jEuWxZidJvOtQ.sgoupkKecqlK54AyjgGg8TzDMoZ.VUFsrerOWya"
+    "username": "elliot",
+    "password": "$2b$10$qEZJeXdmnF4S5kdRiaMOW.zpf6ZFOwmvFdSASTg5WCXw2XsNwW2j2"
   },
   {
     "name": "henry",
     "username": "henry",
-    "password": "$2b$10$1tb00qYtyWG04cwxeyx.zeKhLri4tSi8m/1FJyVjlOpPMO6kZAf5e"
-  },
-  {
-    "name": "reggie",
-    "username": "reggie",
-    "password": "$2b$10$vmCom48dykZxWuAu56URfePw1In6U45bspOR1wQuyOpGOhgWqmuHC"
-  },
-  {
-    "name": "kimberly nelson",
-    "username": "kimmy",
-    "password": "$2b$10$2CISA.nkmLJtBBkgPVIX/Oj5Wp/crZBUB2NaBM7A.gzCAYFXx89k6"
-  },
-  {
-    "name": "smiley",
-    "username": "smiley123",
-    "password": "$2b$10$JDbkeBSEl9vleoXSexiM8upUUQNZ.JLQeGnAYAvg81WuEUNyt7WGa"
+    "password": "$2b$10$aOaqBscXp6DmEU2Lk9BWse8Qf/osNwP2B.XfZDIMKxBKmZu6RdS5W"
   }
 ]

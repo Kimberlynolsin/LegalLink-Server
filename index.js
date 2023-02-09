@@ -1,8 +1,8 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const fs = require('fs')
 const authRoutes = require('./routes/auth')
+const ticketRoutes = require('./routes/ticket')
 require("dotenv").config();
 
 const port = process.env.PORT || 8080;
@@ -17,7 +17,7 @@ app.use((req, res, next) => {
   ) {
     return res.status(400).json({
       error: true,
-      message: "This API only accepts JSON data for a POST/PUT requset body",
+      message: "This API only accepts JSON data for a POST/PUT request body",
     });
   }
 
@@ -25,6 +25,7 @@ app.use((req, res, next) => {
 });
 
 app.use('/',authRoutes)
+app.use('/ticket', ticketRoutes)
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}....`);
