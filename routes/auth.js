@@ -3,8 +3,6 @@ const router = express.Router();
 const fs = require("fs");
 const users = require("../data/users.json");
 const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
-const { Console } = require("console");
 require("dotenv").config();
 
 
