@@ -8,11 +8,8 @@ communication of updates, information and prompt responses to questions and conc
 #### Back-End ####
 Language      | Tech Stack    | Dependencies
 ------------- | ------------- |--------------
- Javascript   | Node.js       | Bcrypt
-              |               | Cors
-              |               | Express.js
-              |               | uuid
-              |               | dotenv
+ Javascript   | Node.js       | Bcrypt, Cors, Express.js, uuid, dotenv
+
                                      
 ## Installation Steps ##
 Step 1: Install all packages/ dependencies. To do so run,
