@@ -20,6 +20,7 @@ router.post("/", (req, res) => {
     id: uuidv4(),
     title: title,
     description: description,
+    timestamp: new Date()
   };
 
   tickets.push(newTicket);
