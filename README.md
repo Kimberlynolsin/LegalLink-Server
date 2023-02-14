@@ -21,7 +21,7 @@ Step 2: To start the server run,
 ## Important ##
 **Please note:** To view the client-side, you will also need to install the client side code found here [Client-Side](https://github.com/Kimberlynolsin/LegalLink-Client/tree/main "Front-End Repository"). Client-side installation steps will be available on the repository.
 
-**Also note:** You will need your own `.env` file enabled for your server to run. **Example**, `PORT=5000`
+**Also note:** You will need your own `.env` file enabled for your server to run. **Example**, `PORT=8000`
 
 ## Conract Information ##
 **Email:** kimberly.nolsin@gmail.com
