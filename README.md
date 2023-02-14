@@ -12,10 +12,12 @@ Language      | Tech Stack    | Dependencies
 
                                      
 ## Installation Steps ##
-Step 1: Install all packages/ dependencies. To do so run,
+Step 1: Copy and paste this code in order to clone the repository `git clone https://github.com/Kimberlynolsin/LegalLink-Server.git`
+
+Step 2: Install all packages/ dependencies. To do so run,
 `npm i`
 
-Step 2: To start the server run,
+Step 3: To start the server run,
 `npm run start`
 
 ## Important ##
