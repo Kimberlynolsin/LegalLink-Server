@@ -28,17 +28,17 @@ git clone https://github.com/Kimberlynolsin/LegalLink-Server.git
 cd LegalLink-Server
 ```
 
-1. Ensure a `.env` file exists, and if not create one:
+3. Ensure a `.env` file exists, and if not create one:
 ```sh
 echo 'PORT=8000' >> .env
 ```
 
-1. Install all packages and dependencies:
+4. Install all packages and dependencies:
 ```sh
 npm i
 ```
 
-1. Start the app:
+5. Start the app:
 ```sh
 npm start
 ```
