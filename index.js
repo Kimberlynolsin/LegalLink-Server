@@ -1,8 +1,9 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const authRoutes = require('./routes/auth')
-const ticketRoutes = require('./routes/ticket')
+const authRoutes = require("./routes/auth");
+const ticketRoutes = require("./routes/ticket");
+const statusRoutes = require("./routes/status");
 require("dotenv").config();
 
 const port = process.env.PORT || 8080;
@@ -24,8 +25,9 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use('/',authRoutes)
-app.use('/ticket', ticketRoutes)
+app.use("/", authRoutes);
+app.use("/ticket", ticketRoutes);
+app.use("/status", statusRoutes);
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}....`);
