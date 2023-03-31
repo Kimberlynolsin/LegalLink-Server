@@ -4,11 +4,11 @@ const tickets = require("../data/ticket.json");
 const { v4: uuidv4 } = require("uuid");
 
 exports.writeTicket = async (req, res) => {
-  const { title, description } = req.body;
+  const { title, description,type } = req.body;
 
   console.log(title, description);
 
-  if (!title || !description) {
+  if (!title || !description || !type) {
     return res.status(400).json({
       error: true,
       message: "You must provide a title, and description",
@@ -17,6 +17,7 @@ exports.writeTicket = async (req, res) => {
 
   const newTicket = {
     id: uuidv4(),
+    type:type,
     title: title,
     description: description,
     timestamp: new Date(),
