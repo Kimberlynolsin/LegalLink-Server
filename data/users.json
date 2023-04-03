@@ -43,5 +43,10 @@
     "name": "kimmy",
     "username": "kimmy15",
     "password": "$2b$10$7HJmIoFYfGWDM9EpqqRukeJzOGWPA//LQHj.xtijGB3x6o7qCkh7i"
+  },
+  {
+    "name": "fish",
+    "username": "fish",
+    "password": "$2b$10$Sx1WeGLZrREjhPmTuh955uZdMyb0re48/.LVClzVJ534H.raV2PE6"
   }
 ]
